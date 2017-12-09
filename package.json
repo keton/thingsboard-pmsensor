@@ -1,0 +1,25 @@
+{
+  "name": "thingsboard-pmsensor",
+  "version": "0.0.1",
+  "description": "Uploads Smartblocks PM Sensor data to Thingsboard dashboard",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bin/index.js"
+  },
+  "keywords": [
+    "thingsboard",
+    "BLE",
+    "PMSensor"
+  ],
+  "author": "Michal Lower <github.com/keton>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/noble": "0.0.34",
+    "@types/node": "^8.0.57"
+  },
+  "dependencies": {
+    "ble-smartblocks": "0.0.1",
+    "mqtt": "^2.14.0"
+  }
+}
