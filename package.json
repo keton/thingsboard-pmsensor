@@ -21,5 +21,16 @@
   "dependencies": {
     "ble-smartblocks": "0.0.1",
     "mqtt": "^2.14.0"
-  }
+  },
+  "bin": {
+    "thingsboard-pmsensor": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keton/thingsboard-pmsensor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/keton/thingsboard-pmsensor/issues"
+  },
+  "homepage": "https://github.com/keton/thingsboard-pmsensor#readme"
 }
