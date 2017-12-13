@@ -6,6 +6,17 @@ export class PmSensorDevice extends NobleBase.Base {
 	public readonly pthService: Smartblocks.PTHService = new Smartblocks.PTHService(this);
 	public readonly pmSensorService: Smartblocks.PmSensorService = new Smartblocks.PmSensorService(this);
 
+	constructor()
+	{
+		super();
+
+		//perform dispose() on disconnect
+		this.on("disconnect",()=>{
+			console.log("auto disposing event handlers...");
+			this.dispose();
+		});
+	}
+
 	protected async onConnectAndSetupDone() {
 		try {
 			await this.pthService.subscribeAll();
@@ -14,12 +25,6 @@ export class PmSensorDevice extends NobleBase.Base {
 		} catch (error) {
 			console.log(error);
 		}
-
-		//perform dispose() on disconnect
-		this.on("disconnect",()=>{
-			console.log("auto disposing event handlers...");
-			this.dispose();
-		});
 	}
 	is(peripheral: Noble.Peripheral): boolean {
 		return (peripheral.advertisement.manufacturerData[0] == 0xAC &&
