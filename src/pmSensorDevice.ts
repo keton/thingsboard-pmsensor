@@ -14,10 +14,23 @@ export class PmSensorDevice extends NobleBase.Base {
 		} catch (error) {
 			console.log(error);
 		}
+
+		//perform dispose() on disconnect
+		this.on("disconnect",()=>{
+			this.dispose();
+		});
 	}
 	is(peripheral: Noble.Peripheral): boolean {
 		return (peripheral.advertisement.manufacturerData[0] == 0xAC &&
 			peripheral.advertisement.manufacturerData[1] == 0x03 &&
 			peripheral.advertisement.manufacturerData[2] == 0xD9);
+	}
+
+	//remove all event listeners and perform necessary cleanup
+	public dispose()
+	{
+		this.removeAllListeners();
+		this.pmSensorService.removeAllListeners();
+		this.pthService.removeAllListeners();
 	}
 }
