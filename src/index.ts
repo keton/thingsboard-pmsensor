@@ -37,11 +37,12 @@ const scanHelper = new NobleBase.ScanHelper<PmSensorDevice>(PmSensorDevice, asyn
 
 	device.on("disconnect",()=>{
 		console.log("BLE connection lost!");
+		mqttHelper.sendAttribute(device.getDeviceId(),"state","disconnected");
 		mqttHelper.sendDeviceDisconnect(device.getDeviceId());
 	});
 
 	mqttHelper.sendDeviceConnect(device.getDeviceId());
-	mqttHelper.sendAttribute(device.getDeviceId(),"deviceType","pmsensor");
+	mqttHelper.sendAttribute(device.getDeviceId(),"state","connected");
 	
 
 
