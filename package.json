@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "ble-smartblocks": "0.0.1",
-    "mqtt": "^2.14.0"
+    "mqtt": "^2.14.0",
+    "typescript-collections": "^1.2.5"
   },
   "bin": {
     "thingsboard-pmsensor": "index.js"

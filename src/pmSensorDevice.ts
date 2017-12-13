@@ -17,6 +17,7 @@ export class PmSensorDevice extends NobleBase.Base {
 
 		//perform dispose() on disconnect
 		this.on("disconnect",()=>{
+			console.log("auto disposing event handlers...");
 			this.dispose();
 		});
 	}
